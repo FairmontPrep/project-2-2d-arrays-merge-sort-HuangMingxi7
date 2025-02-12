@@ -1,5 +1,5 @@
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 public class GameBoard extends JFrame {
     private static final int SIZE = 8;
@@ -22,9 +22,12 @@ public class GameBoard extends JFrame {
         // your 2D array must be a minimum of 6 rows x 2 columns
         // you may add a row for every image if you'd like to have every square be a different color/image
 
-        piecesArray = new String[1][2];
-        piecesArray[0][0]= "temp2.png";
-        piecesArray[0][1]= "HP:200";
+        piecesArray = new String[][] {
+            {"Rook", "5"}, {"Knight", "3"}, {"Bishop", "3"}, {"Queen", "9"},
+            {"King", "10"}, {"Bishop", "3"}, {"Knight", "3"}, {"Rook", "5"},
+            {"Pawn", "1"}, {"Pawn", "1"}, {"Pawn", "1"}, {"Pawn", "1"},
+            {"Pawn", "1"}, {"Pawn", "1"}, {"Pawn", "1"}, {"Pawn", "1"}
+        };
 
         //print the contents of your 2D array
         //this is a requirement to show your 2D array is not sorted at the beginning of your program
