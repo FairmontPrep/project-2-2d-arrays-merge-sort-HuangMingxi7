@@ -21,18 +21,18 @@ public class GameBoard extends JFrame {
 
     private void initializeColors() {
     Random random = new Random();
-    // 生成颜色数组
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE; j++) {
-                // 生成仅包含红色和蓝色的随机颜色
-                int red = random.nextInt(256);
-                int blue = random.nextInt(256);
-                colors[i][j] = new Color(red, 0, blue);
-                // 打印每个颜色的行、列和RGB值
-                System.out.printf("Row: %d, Col: %d, Color: R%d B%d%n", i, j, red, blue);
-            }
+    // make colors
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            // only make red and blue
+            int red = random.nextInt(256);
+            int blue = random.nextInt(256);
+            colors[i][j] = new Color(red, 0, blue);
+            // print out color
+            System.out.printf("Row: %d, Col: %d, Color: R%d B%d%n", i, j, red, blue);
         }
     }
+}
 
 
     private void initializeBoard() {
@@ -46,7 +46,7 @@ public class GameBoard extends JFrame {
     }
 
     public void sortColors() {
-        // 扁平化索引和颜色数组，以便进行排序
+        // sort
         Color[] flatColors = new Color[SIZE * SIZE];
         int index = 0;
         for (int i = 0; i < SIZE; i++) {
@@ -55,10 +55,10 @@ public class GameBoard extends JFrame {
             }
         }
 
-        // 归并排序
+        // merge sort
         mergeSort(flatColors, 0, flatColors.length - 1);
 
-        // 更新界面
+        // update interface
         index = 0;
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
@@ -68,7 +68,7 @@ public class GameBoard extends JFrame {
             }
         }
     }
-
+// merge sort part!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     private void mergeSort(Color[] array, int left, int right) {
         if (left < right) {
             int middle = (left + right) / 2;
@@ -114,7 +114,7 @@ public class GameBoard extends JFrame {
     }
 
     private int colorValue(Color color) {
-        // 使用红色和蓝色值的和作为排序依据
+        // sort by the red and blue color
         return color.getRed() + color.getBlue();
     }
 
